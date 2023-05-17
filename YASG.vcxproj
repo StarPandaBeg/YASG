@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{f81d7e86-e2f7-4293-909a-30190f1746d8}</ProjectGuid>
+    <RootNamespace>YASG</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>SFML_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);SFML_STATIC</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)Lib\SFML\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)Lib\SFML\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-window-s-d.lib;sfml-system-s-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;sfml-graphics-s-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)Assets" "$(OutDir)Assets" /E /H /C /I /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>SFML_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);SFML_STATIC</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)Lib\SFML\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)Lib\SFML\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-window-s.lib;sfml-system-s.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;sfml-graphics-s.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)Assets" "$(OutDir)Assets" /E /H /C /I /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);SFML_STATIC</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)Lib\SFML\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)Lib\SFML\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-window-s-d.lib;sfml-system-s-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;sfml-graphics-s-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)Assets" "$(OutDir)Assets" /E /H /C /I /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);SFML_STATIC</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)Lib\SFML\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)Lib\SFML\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-window-s.lib;sfml-system-s.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;sfml-graphics-s.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)Assets" "$(OutDir)Assets" /E /H /C /I /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\Grid\Shapes\RhombusShape.cpp" />
+    <ClCompile Include="Src\Scenes\ConfigScene.cpp" />
+    <ClCompile Include="Src\Util\NewCamera.cpp" />
+    <ClCompile Include="Src\Views\UI\MenuItemView.cpp" />
+    <ClCompile Include="Src\Views\UI\SpriteButtonView.cpp" />
+    <ClCompile Include="Src\Views\UI\ButtonView.cpp" />
+    <ClCompile Include="Src\Scenes\RatingScene.cpp" />
+    <ClCompile Include="Src\Util\HighScoreManager.cpp" />
+    <ClCompile Include="Src\Scenes\MenuScene.cpp" />
+    <ClCompile Include="Src\Events\WindowEventBus.cpp" />
+    <ClCompile Include="Src\Util\Clock.cpp" />
+    <ClCompile Include="Src\Views\Forms\OverlayFormView.cpp" />
+    <ClCompile Include="Src\Views\Forms\FormView.cpp" />
+    <ClCompile Include="Src\Views\Renderers\GroupRenderer.cpp" />
+    <ClCompile Include="Src\Views\GroupView.cpp" />
+    <ClCompile Include="Src\Views\UI\SpriteView.cpp" />
+    <ClCompile Include="Src\Util\ResourceManager.cpp" />
+    <ClCompile Include="Src\Views\Renderers\DrawableRenderer.cpp" />
+    <ClCompile Include="Src\Drawable\GridFrame.cpp" />
+    <ClCompile Include="Src\Drawable\GridTileMap.cpp" />
+    <ClCompile Include="Src\Drawable\TiledDrawable.cpp" />
+    <ClCompile Include="Src\Views\GridFrameView.cpp" />
+    <ClCompile Include="Src\Views\GridTileMapView.cpp" />
+    <ClCompile Include="Src\Generators\World\PortalGenerationStep.cpp" />
+    <ClCompile Include="Src\Views\Renderers\GridViewRenderer.cpp" />
+    <ClCompile Include="Src\Commands\SnakeTeleportationCommand.cpp" />
+    <ClCompile Include="Src\Grid\Shapes\HeartShape.cpp" />
+    <ClCompile Include="Src\Cells\CrateCell.cpp" />
+    <ClCompile Include="Src\Commands\SnakeDecreaseCommand.cpp" />
+    <ClCompile Include="Src\Grid\Shapes\EllipseShape.cpp" />
+    <ClCompile Include="Src\Commands\SnakeDieCommand.cpp" />
+    <ClCompile Include="Src\SnakeGame.cpp" />
+    <ClCompile Include="Src\GameConfig.cpp" />
+    <ClCompile Include="Src\Scenes\GameScene.cpp" />
+    <ClCompile Include="Src\Scenes\Scene.cpp" />
+    <ClCompile Include="Src\App.cpp" />
+    <ClCompile Include="Src\Cells\Cell.cpp" />
+    <ClCompile Include="Src\Window.cpp" />
+    <ClCompile Include="Src\Cells\Food\AppleCell.cpp" />
+    <ClCompile Include="Src\Generators\AppleGenerator.cpp" />
+    <ClCompile Include="Src\Cells\SnakeCell.cpp" />
+    <ClCompile Include="Src\Commands\SnakeEatCommand.cpp" />
+    <ClCompile Include="Src\Snake\SnakePhysics.cpp" />
+    <ClCompile Include="Src\Snake\SnakeRenderer.cpp" />
+    <ClCompile Include="Src\Commands\SnakeTailCutCommand.cpp" />
+    <ClCompile Include="Src\Events\EventDispatcher.cpp" />
+    <ClCompile Include="Src\Util\GameTimer.cpp" />
+    <ClCompile Include="Src\Grid\Grid.cpp" />
+    <ClCompile Include="Src\Views\GridView.cpp" />
+    <ClCompile Include="Src\Util\InputSystem.cpp" />
+    <ClCompile Include="Src\Main.cpp" />
+    <ClCompile Include="Src\Snake\Snake.cpp" />
+    <ClCompile Include="Src\Util\Utility.cpp" />
+    <ClCompile Include="Src\Views\View.cpp" />
+    <ClCompile Include="Src\Generators\World\WorldGenerator.cpp" />
+    <ClCompile Include="Src\Generators\World\CrateGenerationStep.cpp" />
+    <ClCompile Include="Src\Cells\TeleportCell.cpp" />
+    <ClCompile Include="Src\Views\Renderers\TeleportCellRenderer.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Lib\SFML\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Lib\SFML\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Lib\SFML\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Lib\SFML\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="Src\Views\UI\TextView.cpp" />
+    <ClCompile Include="Src\Views\Forms\UIFormView.cpp" />
+    <ClCompile Include="Src\Events\UIEventSystem.cpp" />
+    <ClCompile Include="Src\Views\UI\TextButtonView.cpp" />
+    <ClCompile Include="Src\Views\UI\TextInputView.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Src\Grid\Shapes\RhombusShape.h" />
+    <ClInclude Include="Src\Scenes\ConfigScene.h" />
+    <ClInclude Include="Src\Util\NewCamera.h" />
+    <ClInclude Include="Src\Views\UI\MenuItemView.h" />
+    <ClInclude Include="Src\Views\UI\SpriteButtonView.h" />
+    <ClInclude Include="Src\Views\UI\ButtonView.h" />
+    <ClInclude Include="Src\Scenes\RatingScene.h" />
+    <ClInclude Include="Src\Util\HighScoreManager.h" />
+    <ClInclude Include="Src\Scenes\MenuScene.h" />
+    <ClInclude Include="Src\Events\IWindowEventTickable.h" />
+    <ClInclude Include="Src\Events\WindowEventBus.h" />
+    <ClInclude Include="Src\Util\Clock.h" />
+    <ClInclude Include="Src\Views\Forms\OverlayFormView.h" />
+    <ClInclude Include="Src\Views\Forms\FormView.h" />
+    <ClInclude Include="Src\Views\Renderers\GroupRenderer.h" />
+    <ClInclude Include="Src\Views\GroupView.h" />
+    <ClInclude Include="Src\Views\UI\IInteractable.h" />
+    <ClInclude Include="Src\Views\UI\SpriteView.h" />
+    <ClInclude Include="Src\Util\ResourceManager.h" />
+    <ClInclude Include="Src\Util\AssetManager.h" />
+    <ClInclude Include="Src\Views\Renderers\DrawableRenderer.h" />
+    <ClInclude Include="Src\Drawable\GridFrame.h" />
+    <ClInclude Include="Src\Drawable\GridTileMap.h" />
+    <ClInclude Include="Src\Drawable\TiledDrawable.h" />
+    <ClInclude Include="Src\Views\GridFrameView.h" />
+    <ClInclude Include="Src\Views\GridTileMapView.h" />
+    <ClInclude Include="Src\Generators\World\PortalGenerationStep.h" />
+    <ClInclude Include="Src\Util\Layers.h" />
+    <ClInclude Include="Src\Views\Renderers\GridViewRenderer.h" />
+    <ClInclude Include="Src\Commands\SnakeTeleportationCommand.h" />
+    <ClInclude Include="Src\Grid\Shapes\HeartShape.h" />
+    <ClInclude Include="Src\Cells\CrateCell.h" />
+    <ClInclude Include="Src\Commands\SnakeDecreaseCommand.h" />
+    <ClInclude Include="Src\Grid\Shapes\EllipseShape.h" />
+    <ClInclude Include="Src\Generators\World\IGenerationStep.h" />
+    <ClInclude Include="Src\Commands\SnakeDieCommand.h" />
+    <ClInclude Include="Src\Grid\Shapes\IGridShape.h" />
+    <ClInclude Include="Src\SnakeGame.h" />
+    <ClInclude Include="Src\GameConfig.h" />
+    <ClInclude Include="Src\Scenes\GameScene.h" />
+    <ClInclude Include="Src\Scenes\Scene.h" />
+    <ClInclude Include="Src\App.h" />
+    <ClInclude Include="Src\Cells\Cell.h" />
+    <ClInclude Include="Src\Views\Renderers\ICustomRenderer.h" />
+    <ClInclude Include="Src\Window.h" />
+    <ClInclude Include="Src\Cells\Food\AppleCell.h" />
+    <ClInclude Include="Src\Cells\Food\IEatable.h" />
+    <ClInclude Include="Src\Commands\IHitCommand.h" />
+    <ClInclude Include="Src\Generators\AppleGenerator.h" />
+    <ClInclude Include="Src\Views\RectangleView.h" />
+    <ClInclude Include="Src\Cells\SnakeCell.h" />
+    <ClInclude Include="Src\Commands\SnakeEatCommand.h" />
+    <ClInclude Include="Src\Snake\SnakePhysics.h" />
+    <ClInclude Include="Src\Snake\SnakeRenderer.h" />
+    <ClInclude Include="Src\Commands\SnakeTailCutCommand.h" />
+    <ClInclude Include="Src\Cells\SnakeHeadCell.h" />
+    <ClInclude Include="Src\Events\Event.h" />
+    <ClInclude Include="Src\Events\EventDispatcher.h" />
+    <ClInclude Include="Src\Util\GameTimer.h" />
+    <ClInclude Include="Src\Grid\Grid.h" />
+    <ClInclude Include="Src\Views\GridView.h" />
+    <ClInclude Include="Src\Util\InputSystem.h" />
+    <ClInclude Include="Src\Util\ITickable.h" />
+    <ClInclude Include="Src\Snake\Snake.h" />
+    <ClInclude Include="Src\Util\Utility.h" />
+    <ClInclude Include="Src\Views\View.h" />
+    <ClInclude Include="Src\Generators\World\WorldGenerator.h" />
+    <ClInclude Include="Src\Generators\World\CrateGenerationStep.h" />
+    <ClInclude Include="Src\Cells\TeleportCell.h" />
+    <ClInclude Include="Src\Views\Renderers\TeleportCellRenderer.h" />
+    <ClInclude Include="Src\Views\UI\TextView.h" />
+    <ClInclude Include="Src\Views\Forms\UIFormView.h" />
+    <ClInclude Include="Src\Events\UIEventSystem.h" />
+    <ClInclude Include="Src\Views\UI\TextButtonView.h" />
+    <ClInclude Include="Src\Views\UI\TextInputView.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

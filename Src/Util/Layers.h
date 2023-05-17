@@ -1,0 +1,10 @@
+#pragma once
+
+#define LAYER_DEFAULT 0
+#define LAYER_GRID 60
+#define LAYER_SNAKE 100
+#define LAYER_SNAKE_HEAD 101
+#define LAYER_GRIDFRAME 110 
+
+#define LAYER_GUI 200
+#define LAYER_OVERLAY 300
